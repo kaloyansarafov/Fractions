@@ -17,25 +17,18 @@ namespace Fractions
             this.Denominator = d;
         }
 
-        public Fraction(string drop)
-        {
-            int[] nums = drop.Split(' ').Select(n => int.Parse(n)).ToArray();
-            this.Numerator = nums[0];
-            this.Numerator = nums[1];
-        }
 
         public static Fraction Parse(string fraction)
         {
             if (fraction == null)
                 Console.WriteLine("Invalid Expression");
 
-            string[] split = fraction.Split('/');
-            int len = split.Length;
+            string[] frac = fraction.Split('/');
 
-            if (len == 2)
+            if (frac.Length == 2)
             {
-                int s0 = int.Parse(split[0]);
-                int s1 = int.Parse(split[1]);
+                int s0 = int.Parse(frac[0]);
+                int s1 = int.Parse(frac[1]);
                 return new Fraction(s0, s1);
             }
             else
